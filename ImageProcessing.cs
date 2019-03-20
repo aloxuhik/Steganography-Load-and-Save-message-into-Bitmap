@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,13 +32,15 @@ namespace Steganography
                 if (y >= image.Height)
                     y = y - image.Height;
                 data.Add(pixelData.R);
+                if(index+1 <count)
                 data.Add(pixelData.G);
+                if(index+2 < count)
                 data.Add(pixelData.B);
                 index+=3;
             }
             return (Encoding.ASCII.GetString(data.ToArray()));
         }
-        public static Bitmap SaveImage(Bitmap Image,string Message)
+        public static Bitmap SaveMessage(Bitmap Image,string Message)
         {
             Bitmap image = (Bitmap)Image.Clone();
 
